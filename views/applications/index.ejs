@@ -1,0 +1,17 @@
+<%- include('../partials/_navbar.ejs', { title: 'My Applications' }) %>
+<body>
+    <h1>Your Apps</h1>
+    <a href="/users/<%= user._id %>/applications/new">Add Application</a>
+    <% if(applications.length === 0) { %>
+        <h2>You have no applications.</h2>
+    <% } else { %>
+        <ul>
+        <% applications.forEach(({title, company, _id}) => { %>
+            <a href="/users/<%= user._id %>/applications/<%= _id %>">
+                <li><%= `${title} at ${company}` %></li>
+            </a>
+        <% }) %>
+        </ul>
+    <% } %>
+</body>
+</html>

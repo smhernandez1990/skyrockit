@@ -1,0 +1,14 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+#avatar {
+    background-color: dodgerblue;
+    font-size: 25px;
+    color: white;
+    font-style: italic;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 90%;
+}

@@ -32,7 +32,16 @@ router.post('/sign-up', async (req, res) => {
             hashedPassword
         })
 
-        res.status(200).json(user)
+        req.session.user = {
+            _id: user._id,
+            username: user.username
+            // role: 'Admin'
+        }
+
+        // save the session to mongodb
+        req.session.save(() => {
+            res.redirect(`/users/${user._id}/applications`)
+        })
     } catch (error) {
         res.render('auth/sign-up', { message: error.message })
     }
@@ -64,11 +73,12 @@ router.post('/sign-in', async (req, res) => {
         req.session.user = {
             _id: foundUser._id,
             username: foundUser.username
+            // role: 'Admin'
         }
 
         // save the session to mongodb
         req.session.save(()=> {
-            res.redirect('/')
+            res.redirect(`/users/${foundUser._id}/applications`)
         })
 
     } catch (error) {

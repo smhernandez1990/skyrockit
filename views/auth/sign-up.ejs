@@ -6,7 +6,7 @@
     <title>Sign Up</title>
   </head>
   <body>
-    <%- include('../partials/_navbar.ejs') %>
+    <%- include('../partials/_navbar.ejs', { title: "Sign up" }) %>
     <h1>Create a Account</h1>
     <% if(typeof(message) !== undefined) { %>
       <p style="color:red;font-style:italic;"><%=  message %></p>

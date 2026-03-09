@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <%- include('partials/_navbar.ejs') %>
+    <%- include('partials/_navbar.ejs',   {title: "My Profile"} )%>
     <h1>Username: <em><%= user.username %></em></h1>
     <p><strong>Member Since:</strong> <%= new Date(user.createdAt) %></p>
 </body>

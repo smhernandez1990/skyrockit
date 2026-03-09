@@ -1,0 +1,13 @@
+<%- include('../partials/_navbar.ejs', { title: application.title }) %>
+<body>
+    <h1><%= application.title %> at <%= application.company %></h1>
+    <h2></h2>
+    <% if(application.notes) { %>
+        <p><%= application.notes %></p>
+    <% } %>
+    <% if(application.postingLink) { %>
+        <a href="<%= application.postingLink %>">View Job Posting</a>
+    <% } %>
+    <p>Current Status: <%= application.status %></p>
+</body>
+</html>

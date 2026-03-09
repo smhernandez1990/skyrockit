@@ -1,11 +1,20 @@
+<%- include('./_header.ejs', { title: title })  %>
 <nav>
-    <% if(user) { %>
-        <strong><%= user.username %></strong>
-        <a href="/">Home</a>
-        <a href="/users/me">My Profile</a>
-        <a href="/auth/sign-out">Sign Out</a>
-    <% } else { %>
-        <a href="/auth/sign-up">Sign Up</a>
-        <a href="/auth/sign-in">Sign In</a>
-    <% } %>
+    <div>
+        <% if(user) { %>
+            <a href="/">Home</a>
+            <a href="/users/me">My Profile</a>
+            <a href="/users/<%= user._id %>/applications">My Applications</a>
+            <a href="/users/<%= user._id %>/applications/new">Add Application</a>
+            <a href="/auth/sign-out">Sign Out</a>
+        <% } else { %>
+            <a href="/auth/sign-up">Sign Up</a>
+            <a href="/auth/sign-in">Sign In</a>
+        <% } %>
+    </div>
+    <div>
+         <% if(user) { %>
+            <strong id="avatar"><%= user?.username?.charAt(0).toUpperCase() %></strong>
+         <% } %>
+    </div>
 </nav>
